@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="nutritioncompany_webapplication.Site1" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nutrition Company - Your go-to place for nutritional solutions.">
+    <title>Nutrition Company</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .header .logo {
+            max-height: 80px; /* Adjust based on your logo size */
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Content area */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #f4f4f4;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            border-right: 1px solid #ddd;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-top: 1px solid #444;
+        }
+
+        /* Animation */
+        #ANIMATION {
+            background: linear-gradient(45deg, #e74c3c, #3498db, #2ecc71, #f1c40f, #9b59b6);
+            background-size: 500% 500%;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: gradientAnimation 12s ease infinite;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                order: 2;
+                margin-bottom: 20px;
+            }
+            .main-content {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <header class="header">
+                <asp:ImageButton ID="Image1" runat="server" ImageUrl="~/Image/Sans titre.png" Alt="Company Logo" CssClass="logo" OnClick="Image1_Click" />
+            </header>
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div id="ANIMATION">
+                        <p>ONLY FOR THE SALES STAFF</p>
+                    </div>
+                </aside>
+                <main class="main-content">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+            </div>
+            <footer class="footer">
+                <p>Boulevard Ariha Gold Nutrition, Marrakesh</p>
+                <p>Call: 0639-225192</p>
+                <p>Website developed by MOHAMED BATARI</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
